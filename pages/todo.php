@@ -1,7 +1,7 @@
 <?php
 
 $databaseHandler = new PDO('mysql:host=localhost;dbname=php-todos', 'root', 'root');
-$statement = $databaseHandler->query('SELECT * FROM `todos` ORDER BY `rank`');
+$statement = $databaseHandler->query('SELECT * FROM `todos` ORDER BY `id`');
 $todos = $statement->fetchAll();
 
 ?>
@@ -25,8 +25,8 @@ $todos = $statement->fetchAll();
         <ul id="todo-list" class="list-group mb-4">
 
             <?php foreach ($todos as $todo): ?>
-            <li class="list-group-item">
-
+            <li  class="list-group-item">
+                <input type="checkbox">
                 <?php if($todo['done']): ?>
                     <del class="text-muted">
                         <?= $todo['description'] ?>
