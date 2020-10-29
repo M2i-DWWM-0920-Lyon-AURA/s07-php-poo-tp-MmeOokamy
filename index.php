@@ -24,6 +24,7 @@ $router = new AltoRouter();
 // ================================================================
 
 // Page d'accueil
+
 $router->map('GET', '/', function() {
     require __DIR__ . '/pages/home.php';
 });
