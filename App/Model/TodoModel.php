@@ -4,6 +4,7 @@ namespace App\Model;
 
 
 use App\Core\DatabaseHandler;
+use PDO;
 
 final class TodoModel 
 {
@@ -18,11 +19,12 @@ final class TodoModel
     )
     {
         $this->id = $id;
-        $this
-        ->setDescription($description)
-        ->setDone($done)
-        ;
+        $this->description = $description;
+        $this->done = $done;
+        
     }
+
+   
 
     /**
      * Fetch all results from a database query
@@ -41,12 +43,18 @@ final class TodoModel
         return $statement->fetchAll(\PDO::FETCH_FUNC, [$className, 'createInstance']);
     }
 
+    static public function createTodo($id, $description, $done)
+    {
+        return new TodoModel($id, $description, $done);
+    }
+
     static public function fetchAll(): array
     {
         $statement = DatabaseHandler::query('SELECT * FROM `todos` ORDER BY `id`');
         return $statement->fetchAll();
     }
 
+ 
 
     /**
      * Get the value of id

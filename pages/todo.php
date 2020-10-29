@@ -8,13 +8,8 @@ $todos = TodoModel::fetchAll();
 
 if(isset($_POST['add']))
 {
-    $addTodo = new TodoModel(
-        null,
-        $_POST['add'],
-        0
-    );
-
-}
+    $addTodo = new TodoModel(null, $_POST['add'], 0);
+};
 
 ?>
 
@@ -58,7 +53,7 @@ if(isset($_POST['add']))
             <?php endforeach; ?>
 
         </ul>
-        <form method="post" action="/" id="add-todo" class="d-flex">
+        <form method="post" action="todo" id="add-todo" class="d-flex">
             <input id="add-todo-name" name="add" class="form-control" type="text" placeholder="Entrez une nouvelle tâche" />
             <button id="add-todo-button" class="btn btn-success">Ajouter</button>
         </form>

@@ -31,10 +31,13 @@ $router->map('GET', '/', function() {
 });
 
 // Page des tâches à faire
-$router->map('GET', '/todo', 'ListeController#todo');
-$router->map('POST', '/todo/new', 'ListeController#todo');
-$router->map('POST', '/todo/:id/update', 'ListeController#update');
-$router->map('POST', '/todo/:id/delete', 'ListeController#delete');
+$router->map('GET', '/todo', function() {
+    require __DIR__ . '/pages/todo.php';
+});
+$router->map('POST', '/todo', function() {
+    require __DIR__ . '/pages/todo.php';
+});
+
 
 
 // ================================================================
