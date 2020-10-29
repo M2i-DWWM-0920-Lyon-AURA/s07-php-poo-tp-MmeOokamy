@@ -1,9 +1,9 @@
 <?php
 
-use App\Core\DatabaseHandler;
 
-$statement = DatabaseHandler::query('SELECT * FROM `todos` ORDER BY `id`');
-$todos = $statement->fetchAll();
+use App\Model\TodoModel;
+
+$todos = TodoModel::fetchAll();
 
 ?>
 
