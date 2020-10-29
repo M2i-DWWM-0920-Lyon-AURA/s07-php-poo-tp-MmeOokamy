@@ -46,6 +46,20 @@ class StandardView extends AbstractView
             $$varName = $value;
         }
 
+        echo '<header>' . PHP_EOL;
+        
+        echo '</header>' . PHP_EOL;
+
+        echo '<div class="container">' . PHP_EOL;
+        echo '<main>' . PHP_EOL;
+        // Inclue les templates fournis lors de la création de l'objet
+        foreach ($this->templates as $template) {
+            include './templates/' . $template . '.php';
+        }
+        echo '</main>' . PHP_EOL;
+        echo '</div>' . PHP_EOL;
+
+
     
         // Inclue le template footer
         include './templates/footer.php';

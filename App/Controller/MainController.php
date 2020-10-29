@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Model\TodoModel;
 use App\Core\AbstractView;
 use App\View\StandardView;
 
@@ -16,7 +16,8 @@ class MainController
         // Renvoie une nouvelle vue...
         return new StandardView(
             // ...contenant la page d'accueil
-            [ 'main/home' ]
+            ['pages/home' ]
         );
     }
+
 }
