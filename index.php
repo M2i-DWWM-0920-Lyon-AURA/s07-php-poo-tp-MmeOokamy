@@ -10,6 +10,8 @@
 // Active le chargement automatique des classes grâce à Composer
 require 'vendor/autoload.php';
 
+
+
 // Crée un nouveau routeur
 $router = new AltoRouter();
 

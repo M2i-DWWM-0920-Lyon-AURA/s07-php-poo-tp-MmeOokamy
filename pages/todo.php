@@ -1,7 +1,8 @@
 <?php
 
-$databaseHandler = new PDO('mysql:host=localhost;dbname=php-todos', 'root', 'root');
-$statement = $databaseHandler->query('SELECT * FROM `todos` ORDER BY `id`');
+use App\Core\DatabaseHandler;
+
+$statement = DatabaseHandler::query('SELECT * FROM `todos` ORDER BY `id`');
 $todos = $statement->fetchAll();
 
 ?>
