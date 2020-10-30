@@ -34,14 +34,14 @@ $router->map('GET', '/', function() {
 });
 
 // Page des tâches à faire
-$router->map('GET', '/todo', function() {
+$router->map('GET', '/todos', function() {
     $controller = new ListeController;
 	$controller->list();
 });
-$router->map('POST', '/todo', function() {
-    require __DIR__ . '/pages/todo.php';
+$router->map('POST', '/todos/new', function() {
+    $controller = new ListeController;
+	$controller->create();
 });
-
 
 
 // ================================================================

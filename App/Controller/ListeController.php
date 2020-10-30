@@ -18,4 +18,11 @@ class ListeController
         require './templates/todo-list.php';
         require './templates/footer.php';
     }
+
+    public function create()
+    {
+        require './templates/head.php';
+        echo 'hellow';
+        require './templates/footer.php';
+    }
 }
