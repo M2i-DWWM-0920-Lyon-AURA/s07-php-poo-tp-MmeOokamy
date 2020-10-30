@@ -8,7 +8,11 @@ $todos = TodoModel::fetchAll();
 
 if(isset($_POST['add']))
 {
-    $addTodo = new TodoModel(null, $_POST['add'], 0);
+    $addTodo = new TodoModel(
+        null,
+        $_POST['add'],
+         0
+    );
 };
 
 ?>

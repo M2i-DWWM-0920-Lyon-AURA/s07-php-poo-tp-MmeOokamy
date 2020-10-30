@@ -11,13 +11,9 @@ class MainController
     /**
      * Display home page
      */
-    public function home(): AbstractView
+    public function home()
     {
-        // Renvoie une nouvelle vue...
-        return new StandardView(
-            // ...contenant la page d'accueil
-            ['pages/home' ]
-        );
+        require './pages/home.php';
     }
 
 }
