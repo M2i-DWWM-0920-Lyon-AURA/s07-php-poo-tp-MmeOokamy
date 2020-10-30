@@ -8,16 +8,19 @@ final class TodoModel
 {
     protected $id;
     protected $description;
+    protected $rank;
     protected $done;
 
     public function __construct(
         int $id = null,
         string $description = '',
+        int $rank = null,
         int $done = 0
     )
     {
         $this->id = $id;
         $this->description = $description;
+        $this->rank = $rank;
         $this->done = $done;
         
     }
@@ -41,14 +44,14 @@ final class TodoModel
         return $statement->fetchAll(\PDO::FETCH_FUNC, [$className, 'createInstance']);
     }
 
-    static public function createTodo($id, $description, $done)
+    static public function createTodo($id, $description, $rank, $done)
     {
-        return new TodoModel($id, $description, $done);
+        return new TodoModel($id, $description, $rank, $done);
     }
 
     static public function fetchAll(): array
     {
-        $statement = DatabaseHandler::query('SELECT * FROM `todos` ORDER BY `id`');
+        $statement = DatabaseHandler::query('SELECT * FROM `todos` ORDER BY `rank`');
         return $statement->fetchAll();
     }
 
@@ -103,6 +106,26 @@ final class TodoModel
     }
 
     
+
+    /**
+     * Get the value of rank
+     */ 
+    public function getRank()
+    {
+        return $this->rank;
+    }
+
+    /**
+     * Set the value of rank
+     *
+     * @return  self
+     */ 
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+
+        return $this;
+    }
 }
 
 

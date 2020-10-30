@@ -43,6 +43,10 @@ $router->map('POST', '/todos/new', function() {
 	$controller->create();
 });
 
+$router->map('POST', '/todos/[i:id]/update', function(int $id) {
+    $controller = new ListeController;
+	$controller->update($id);
+});
 
 // ================================================================
 // Routeur
