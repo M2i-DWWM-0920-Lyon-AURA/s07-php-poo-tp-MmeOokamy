@@ -6,22 +6,30 @@
             <?php foreach ($todos as $todo): ?>
             
               <li  class="list-group-item" >
-                <div class="d-flex bd-highlight mb-3">
-                    <div class="p-2 bd-highlight"><input type="checkbox">
-                    <?php if($todo['done']): ?>
-                    <del class="text-muted">
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight"><input type="checkbox">
+                        <?php if($todo['done']): ?>
+                        <del class="text-muted">
+                            <?= $todo['description'] ?>
+                        </del>
+                        <?php else: ?>
                         <?= $todo['description'] ?>
-                    </del>
-                    <?php else: ?>
-                    <?= $todo['description'] ?>
-                    <?php endif; ?>
+                        <?php endif; ?>
                     </div>
-                    <div class="ml-auto p-2 bd-highlight">
-                        <button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button>
-                        <button type="button" class="btn btn-danger">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                </div>
+                    <div class="p-2 bd-highlight">    
+                        <form action="" method="post">
+                            <input type="hidden" name="<?= $todo['id'] ?>">
+                            <button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button>
+                        </form>
+                    </div>
+                 <div class="p-2 bd-highlight">
+                        <form action="" method="post">
+                            <input type="hidden" name="<?= $todo['id'] ?>">
+                            <button type="button" class="btn btn-danger">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </form>
+                 </div>
                 </div>
              </li>
             

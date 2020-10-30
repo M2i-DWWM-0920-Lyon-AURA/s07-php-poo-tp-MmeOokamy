@@ -46,5 +46,35 @@ class ListeController
     public function update(int $id)
     {
 
+        $stmt = DatabaseHandler::prepare('SELECT * FROM `todos` WHERE `id`');
+        $stmt->execute([':id' => $id]);
+        $todo = $stmt->fetchAll()[0];
+        
+        if (isset($_POST['description'])){
+            $todo['description'] = $_POST['description'];
+        }
+
+        if (isset($_POST['rank'])){
+            $todo['rank'] = $_POST['rank'];
+        }
+
+        $stmt = DatabaseHandler::prepare('
+        UPDATE `todos`
+        SET 
+            `description` = :description,
+            `rank` = :rank,
+            `done` = :done
+        WHERE `id` = :id
+        ');
+
+        $stmt->execute([
+            ':description' => $_POST['description'],
+            ':done' =>  $_POST['done'],
+            ':rank' =>  $_POST['rank'],
+            ':id' => $id
+
+        ]);
+
+ 
     }
 }
