@@ -6,16 +6,16 @@ use App\Core\DatabaseHandler;
 
 final class TodoModel 
 {
-    protected $id;
-    protected $description;
-    protected $rank;
-    protected $done;
+    protected int $id;
+    protected string $description;
+    protected int $rank;
+    protected bool $done;
 
     public function __construct(
         int $id = null,
         string $description = '',
-        int $rank = null,
-        int $done = 0
+        int $rank = 0,
+        bool $done = false
     )
     {
         $this->id = $id;
