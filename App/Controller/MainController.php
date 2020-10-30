@@ -13,7 +13,9 @@ class MainController
      */
     public function home()
     {
-        require './pages/home.php';
+        require './templates/head.php';
+        require './templates/home.php';
+        require './templates/footer.php';
     }
 
 }

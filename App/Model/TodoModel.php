@@ -2,9 +2,7 @@
 
 namespace App\Model;
 
-
 use App\Core\DatabaseHandler;
-use PDO;
 
 final class TodoModel 
 {

@@ -12,6 +12,10 @@ class ListeController
      */
     public function list()
     {
-        require './pages/todo.php';
+        $todos = TodoModel::fetchAll();
+
+        require './templates/head.php';
+        require './templates/todo-list.php';
+        require './templates/footer.php';
     }
 }
