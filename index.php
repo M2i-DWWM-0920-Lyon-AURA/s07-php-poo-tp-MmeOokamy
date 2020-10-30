@@ -48,6 +48,11 @@ $router->map('POST', '/todos/[i:id]/update', function(int $id) {
 	$controller->update($id);
 });
 
+$router->map('POST', '/todos/[i:id]/delete', function(int $id) {
+    $controller = new ListeController;
+	$controller->delete($id);
+});
+
 // ================================================================
 // Routeur
 // ----------------------------------------------------------------

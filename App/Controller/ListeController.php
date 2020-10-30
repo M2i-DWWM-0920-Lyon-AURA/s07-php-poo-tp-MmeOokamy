@@ -75,6 +75,15 @@ class ListeController
 
         ]);
 
+        header('location: /todos');
+
  
+    }
+
+    public function delete(int $id)
+    {
+            $stmt = DatabaseHandler::prepare('DELETE FROM `todos` WHERE `id` = :id');
+            $stmt->execute([':id' => $id]);
+            header('location: /todos');
     }
 }

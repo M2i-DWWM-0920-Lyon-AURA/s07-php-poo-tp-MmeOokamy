@@ -6,31 +6,26 @@
             <?php foreach ($todos as $todo): ?>
             
               <li  class="list-group-item" >
-                <div class="d-flex bd-highlight">
-                    <div class="p-2 flex-grow-1 bd-highlight"><input type="checkbox">
-                        <?php if($todo['done']): ?>
-                        <del class="text-muted">
-                            <?= $todo['description'] ?>
-                        </del>
-                        <?php else: ?>
-                        <?= $todo['description'] ?>
-                        <?php endif; ?>
+              <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight" style="flex-grow: 2">
+                        <form method="post" action="/todos/<?= $todo['id'] ?>/update" >
+
+                            <input  type="text" name="description" value="<?= $todo['description'] ?>">
                     </div>
-                    <div class="p-2 bd-highlight">    
-                        <form action="" method="post">
-                            <input type="hidden" name="<?= $todo['id'] ?>">
-                            <button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button>
+                    <div class="p-2 bd-highlight">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i></button>
                         </form>
                     </div>
-                 <div class="p-2 bd-highlight">
-                        <form action="" method="post">
-                            <input type="hidden" name="<?= $todo['id'] ?>">
-                            <button type="button" class="btn btn-danger">
+                    <div class="p-2 bd-highlight">
+                        <form action="/todos/<?= $todo['id'] ?>/delete" method="post">
+                    
+                            <button type="submit" class="btn btn-danger">
                                 <i class="far fa-trash-alt"></i>
                             </button>
                         </form>
-                 </div>
+                     </div>
                 </div>
+
              </li>
             
             <?php endforeach; ?>
